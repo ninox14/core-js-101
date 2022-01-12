@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 /* ********************************************************************************************
  *                                                                                            *
  * Please read the following tutorial before implementing tasks:                               *
@@ -421,19 +420,12 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(arr) {
-  return arr.sort(
-    // eslint-disable-next-line no-confusing-arrow
-    (a, b) =>
-      // eslint-disable-next-line no-nested-ternary
-      a.country !== b.country
-        ? a.country < b.country
-          ? -1
-          : 1
-        : a.city < b.city
-        ? -1
-        : 1
-    // eslint-disable-next-line function-paren-newline
-  );
+  return arr.sort((a, b) => {
+    if (a.country !== b.country) {
+      return a.country < b.country ? -1 : 1;
+    }
+    return a.city < b.city ? -1 : 1;
+  });
 }
 
 /**
@@ -462,7 +454,6 @@ function getIdentityMatrix(n) {
         Array(n)
           .fill(0)
           .map((j, jdx) => (idx === jdx ? 1 : j))
-      // eslint-disable-next-line function-paren-newline
     );
 }
 
